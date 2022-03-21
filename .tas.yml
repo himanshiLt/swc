@@ -1,0 +1,17 @@
+---
+framework: jest
+preRun:
+     command:
+        - yarn
+        - npx rust-app rustup-init
+        - source $HOME/.cargo/env
+        - yarn build:dev
+preMerge:
+  pattern:
+    - "./node-swc/__tests__/*{.mjs,.js}" 
+    - "./node-swc/__tests__/*/*{.mjs,.js}"
+postMerge:
+  pattern: 
+    - "./node-swc/__tests__/*{.mjs,.js}" 
+    - "./node-swc/__tests__/*/*{.mjs,.js}"
+version: 1.0
